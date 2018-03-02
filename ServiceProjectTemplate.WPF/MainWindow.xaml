@@ -1,0 +1,22 @@
+﻿<Window x:Class="ServiceProjectTemplate.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiceProjectTemplate.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button Content="Hellow World Method" HorizontalAlignment="Left" Margin="69,60,0,0" VerticalAlignment="Top" Width="145" Click="HelloWorldMethod_Click"/>
+        <CheckBox Name="CheckBox_HelloWorldMethodTimeElapsed" Content="Inc. time elapsed" HorizontalAlignment="Left" Margin="234,63,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RichTextBox Name="LogOutput"  HorizontalAlignment="Left" Margin="69,128,0,0" VerticalAlignment="Top"  Height="232" Width="369">
+            <FlowDocument>
+                <Paragraph Margin="0">
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button Content="Clear log" HorizontalAlignment="Left" Margin="69,94,0,0" VerticalAlignment="Top" Width="74" Click="ClearLog_Click"/>
+
+    </Grid>
+</Window>
