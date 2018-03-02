@@ -18,7 +18,7 @@ namespace ServiceProjectTemplate.WPF
         }
 
         /// <summary>
-        /// Testing of xml file loading
+        /// Task to run the Hellow World method. Using tasks uses different threads to the desktop ui so it will not hang
         /// </summary>
         /// <returns></returns>
         public async Task RunHelloWorld(bool includeSpeedTest = true)
