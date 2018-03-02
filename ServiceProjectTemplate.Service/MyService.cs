@@ -15,12 +15,22 @@ namespace ServiceProjectTemplate.Service
     // To Install service (from Developer Command Prompt): installutil.exe ServiceProjectTemplate.Service.exe
     // To Uninstall service (from Developer Command Prompt): installutil.exe /u ServiceProjectTemplate.Service.exe
 
+    /// <summary>
+    /// The windows service. A basic admin page is accesible via a browser at 127.0.0.1:12999
+    /// </summary>
     public partial class MyService : ServiceBase
     {
         private System.Timers.Timer mainTimer = new System.Timers.Timer();
         private System.Timers.Timer adminTimer = new System.Timers.Timer();
 
+        /// <summary>
+        /// The interval between the calls to MainTimer_Tick
+        /// </summary>
         private double MainTimerInterval = 60000; // 60 seconds
+
+        /// <summary>
+        /// The interval between the calls to AdminTimer_Tick
+        /// </summary>
         private double AdminTimerInterval = 1000; // 1 second
 
         //The main socket listener   
@@ -29,8 +39,8 @@ namespace ServiceProjectTemplate.Service
         private TcpClient ClientConnection = new TcpClient();
 
         // remote admin login details
-        private static string Auth_Username = "theusername"; // Update these with your login details!
-        private static string Auth_Password = "thepassword"; // Update these with your login details!
+        private static string Auth_Username = "theusername"; // TODO Update these with new login details!
+        private static string Auth_Password = "thepassword"; // TODO Update these with new login details!
 
         //A flag I've found very helpful, to keep a record of whether
         //someone is connected
