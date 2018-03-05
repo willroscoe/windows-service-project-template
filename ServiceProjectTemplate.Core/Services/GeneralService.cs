@@ -4,27 +4,46 @@ namespace ServiceProjectTemplate.Core.Services
 {
     public class GeneralService
     {
-        public GeneralService() {}
+        /// <summary>
+        /// log delegate holder
+        /// </summary>
+        private LogDelegate _updatelog;
+
+        /// <summary>
+        /// thread/process id
+        /// </summary>
+        private int _taskid;
+
+        public GeneralService(LogDelegate updatelog, int taskid = -1)
+        {
+            _updatelog = updatelog;
+            _taskid = taskid;
+        }
 
         /// <summary>
         /// Hello World demo class. LogDelegate and/or taskid could be passed as parameters here 
         /// </summary>
         /// <param name="includeSpeedTest"></param>
-        public void HelloWorld(LogDelegate updatelog, int taskid = -1, bool includeSpeedTest = false)
+        public void HelloWorld(bool includeSpeedTest = false, int? taskid = null)
         {
-            var LOG_TITLE = Helpers.FormatLogTitle("Hello World", taskid); // add the task id to the title
+            if (taskid.HasValue)
+            {
+                _taskid = taskid.Value;
+            }
 
-            updatelog(LogType.BeginEnd, LOG_TITLE + " - BEGIN");
+            var LOG_TITLE = Helpers.FormatLogTitle("Hello World", _taskid); // add the task id to the title
+
+            _updatelog(LogType.BeginEnd, LOG_TITLE + " - BEGIN");
             Stopwatch stopwatch = Stopwatch.StartNew();
 
-            // Do Hello World stuff here...
+            // Do 'Hello World' stuff here...
 
 
             stopwatch.Stop();
-            updatelog(LogType.BeginEnd, LOG_TITLE + " - END");
+            _updatelog(LogType.BeginEnd, LOG_TITLE + " - END");
 
             if (includeSpeedTest)
-                updatelog(LogType.Highlight, LOG_TITLE + " - Time elapsed: " + stopwatch.Elapsed);
+                _updatelog(LogType.Highlight, LOG_TITLE + " - Time elapsed: " + stopwatch.Elapsed);
         }
     }
 }

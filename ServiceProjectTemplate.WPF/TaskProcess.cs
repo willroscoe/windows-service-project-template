@@ -8,13 +8,20 @@ namespace ServiceProjectTemplate.WPF
 {
     public class TaskProcess
     {
-        private Services _services = new Services();
+        /// <summary>
+        /// Services holder
+        /// </summary>
+        private Services _services;
 
+        /// <summary>
+        /// Task Progress holder
+        /// </summary>
         private IProgress<LogModel> _process;
 
         public TaskProcess(IProgress<LogModel> process)
         {
             _process = process;
+            _services = new Services(UpdateLog, Task.CurrentId ?? -1);
         }
 
         /// <summary>
@@ -25,7 +32,7 @@ namespace ServiceProjectTemplate.WPF
         {
             await Task.Run(() =>
             {
-                _services.General.HelloWorld(UpdateLog, Task.CurrentId ?? -1, includeSpeedTest);
+                _services.General.HelloWorld(includeSpeedTest, Task.CurrentId ?? -1);
             });
         }
 

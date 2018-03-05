@@ -61,9 +61,6 @@ namespace ServiceProjectTemplate.Service
 
         private DateTime lastRun = DateTime.MinValue;
 
-        // Core project services
-        private Services _services = new Services();
-
         public MyService()
         {
             InitializeComponent();
@@ -170,7 +167,9 @@ namespace ServiceProjectTemplate.Service
 
         private void DoHelloWorld()
         {
-            _services.General.HelloWorld(UpdateLog, -1, false);
+            // Core project services
+            Services _services = new Services(UpdateLog, -1);
+            _services.General.HelloWorld();
         }
 
         /// <summary>
