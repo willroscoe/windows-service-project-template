@@ -1,0 +1,29 @@
+<VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">  
+  <TemplateData>  
+    <Name>A Windows Service Template (WR)</Name>  
+    <Description>A windows service project template including a shared class library and WPF desktop front-end</Description>  
+    <ProjectType>CSharp</ProjectType>  
+    <ProjectSubType>  
+    </ProjectSubType>  
+    <SortOrder>1000</SortOrder>  
+    <CreateNewFolder>true</CreateNewFolder>  
+    <DefaultName>ServiceProjectTemplate</DefaultName>  
+    <ProvideDefaultName>true</ProvideDefaultName>  
+    <LocationField>Enabled</LocationField>  
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>  
+    <Icon>__TemplateIcon.ico</Icon>  
+  </TemplateData>  
+  <TemplateContent>  
+    <ProjectCollection>  
+    	<ProjectTemplateLink ProjectName="$projectname$.Core" CopyParameters="true">  
+        	ServiceProjectTemplate.Core\MyTemplate.vstemplate  
+        </ProjectTemplateLink>  
+        <ProjectTemplateLink ProjectName="$projectname$.Service" CopyParameters="true">  
+                ServiceProjectTemplate.Service\MyTemplate.vstemplate  
+        </ProjectTemplateLink>  
+        <ProjectTemplateLink ProjectName="$projectname$.WPF" CopyParameters="true">  
+                ServiceProjectTemplate.WPF\MyTemplate.vstemplate  
+            </ProjectTemplateLink>  
+    </ProjectCollection>  
+  </TemplateContent>  
+</VSTemplate>

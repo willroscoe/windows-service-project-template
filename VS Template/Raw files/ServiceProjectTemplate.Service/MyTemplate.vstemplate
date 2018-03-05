@@ -1,0 +1,30 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>ServiceProjectTemplate.Service</Name>
+    <Description>The windows service project</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ServiceProjectTemplate.Service</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ServiceProjectTemplate.Service.csproj" File="ServiceProjectTemplate.Service.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MyService.cs">MyService.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MyService.Designer.cs">MyService.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ProjectInstaller.cs">ProjectInstaller.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ProjectInstaller.Designer.cs">ProjectInstaller.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ProjectInstaller.resx">ProjectInstaller.resx</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
